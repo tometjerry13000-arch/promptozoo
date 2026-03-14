@@ -12,7 +12,7 @@
         <!-- HEADER -->
         <header>
             <h1><i class="fas fa-robot"></i> PROMPT DANCE STUDIO</h1>
-            <div class="version">v5.0 - 54+ personnages + TOUS les effets</div>
+            <div class="version">v5.1 - 55 personnages + FINALE SPECTACULAIRE</div>
         </header>
 
         <div class="main-content">
@@ -23,7 +23,7 @@
                     <div class="card-header">
                         <i class="fas fa-user-tag"></i>
                         <h3>PERSONNAGES</h3>
-                        <span class="badge">54+</span>
+                        <span class="badge">55</span>
                     </div>
                     <div class="card-body">
                         <input type="text" id="characterSearch" placeholder="Rechercher..." class="search-input">
@@ -304,7 +304,7 @@
                     </div>
                 </div>
 
-                <!-- SECTION SÉDUCTION - CORRIGÉE AVEC BISOUS ET VIENS -->
+                <!-- SECTION SÉDUCTION -->
                 <div class="card">
                     <div class="card-header">
                         <i class="fas fa-heart"></i>
@@ -323,8 +323,6 @@
                             <label class="checkbox-label"><input type="checkbox" id="gesteLevres" checked> Lèvre mordue</label>
                             <label class="checkbox-label"><input type="checkbox" id="gesteMains" checked> Mains caressantes</label>
                             <label class="checkbox-label"><input type="checkbox" id="gesteCheveux" checked> Jeux cheveux</label>
-                            
-                            <!-- ✅ NOUVELLES CHECKBOX POUR BISOUS ET VIENS -->
                             <label class="checkbox-label"><input type="checkbox" id="gesteBisous" checked> Envoyer des bisous</label>
                             <label class="checkbox-label"><input type="checkbox" id="gesteViens" checked> Geste "viens vers moi"</label>
                         </div>
@@ -338,6 +336,81 @@
                                 <label>Nombre de gestes "viens"</label>
                                 <input type="number" id="viensCount" value="4" min="1" max="10">
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🎬 NOUVELLE SECTION - FINALE SPECTACULAIRE -->
+                <div class="card" style="border: 3px solid #ffd700; background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,140,0,0.15));">
+                    <div class="card-header">
+                        <i class="fas fa-star"></i>
+                        <h3>🎬 FINALE SPECTACULAIRE (4ème seconde)</h3>
+                        <span class="badge" style="background: #ffd700; color: black;">NOUVEAU</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-note" style="margin-bottom: 15px; background: rgba(255,215,0,0.2); border-left-color: #ffd700; text-align: center;">
+                            <i class="fas fa-clock"></i> 
+                            <strong style="color: #ffd700;">À la 4ème seconde de la partie 2</strong> - Geste final mémorable
+                        </div>
+                        
+                        <div class="checkbox-grid" style="grid-template-columns: repeat(2,1fr); gap: 12px;">
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalBisou" checked> 💋 Bisou final langoureux
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalCiao" checked> 👋 Ciao de la main
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalMasque"> 🖐️ Masquage de l'objectif
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalCoeur"> 💖 Cœur avec les mains
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalClignement" checked> 😉 Clin d'œil appuyé
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalCascade"> 💋💋 Cascade de bisous
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalRevelation"> ✨ Révélation (bras écartés)
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalSalut"> 👑 Salut royal / révérence
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalRegard"> 👁️ Regard intense (2 sec)
+                            </label>
+                            <label class="checkbox-label" style="color: #ffd700; font-weight: bold;">
+                                <input type="checkbox" id="finalViens"> 👉 Dernier geste "viens"
+                            </label>
+                        </div>
+                        
+                        <div style="margin-top: 20px; display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                            <div style="flex: 1;">
+                                <label style="color: #ffd700; display: block; margin-bottom: 5px;">🎞️ OPTION DE FIN :</label>
+                                <select id="finalOption" class="full-width" style="border-color: #ffd700;">
+                                    <option value="freeze">📸 Freeze frame (image figée)</option>
+                                    <option value="fondu">🌫️ Fondu au noir</option>
+                                    <option value="fonduBlanc">✨ Fondu au blanc lumineux</option>
+                                    <option value="zoom">🔍 Zoom lent sur son visage</option>
+                                    <option value="flou">🌀 Flou artistique progressif</option>
+                                </select>
+                            </div>
+                            
+                            <div style="flex: 1;">
+                                <label style="color: #ffd700; display: block; margin-bottom: 5px;">⏱️ DURÉE MAINTIEN :</label>
+                                <select id="finalMaintien" class="full-width" style="border-color: #ffd700;">
+                                    <option value="1">1 seconde</option>
+                                    <option value="2" selected>2 secondes</option>
+                                    <option value="3">3 secondes</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 15px; text-align: center; padding: 10px; background: rgba(255,215,0,0.1); border-radius: 8px;">
+                            <i class="fas fa-film" style="color: #ffd700; margin-right: 5px;"></i>
+                            <span style="color: #ffd700;">Séquence : Danse → 4ème seconde → Geste final (lent) → Maintien pose → Effet de fin</span>
                         </div>
                     </div>
                 </div>
@@ -548,12 +621,12 @@
                     </div>
                 </div>
 
-                <!-- SECTION DÉCOR PERSONNALISÉ (NOUVEAU) -->
+                <!-- SECTION DÉCOR PERSONNALISÉ -->
                 <div class="card" style="border: 2px solid #00ffff; background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(0,0,139,0.1));">
                     <div class="card-header">
                         <i class="fas fa-map"></i>
                         <h3>DÉCOR PERSONNALISÉ</h3>
-                        <span class="badge" style="background: #00ffff; color: black;">NOUVEAU</span>
+                        <span class="badge" style="background: #00ffff; color: black;">OPTIONNEL</span>
                     </div>
                     <div class="card-body">
                         <div class="toggle-container">
@@ -567,7 +640,7 @@
                         <div id="customDecorOptions" style="margin-top: 15px; display: none;">
                             <div class="input-group">
                                 <label>✏️ TON DÉCOR (description libre)</label>
-                                <textarea id="customDecorText" rows="4" placeholder="Exemple: sur une plage paradisiaque de Neptune avec des vagues phosphorescentes..." class="full-width"></textarea>
+                                <textarea id="customDecorText" rows="4" placeholder="Exemple: sur une plage paradisiaque de Neptune..." class="full-width"></textarea>
                             </div>
                             
                             <div class="input-group">
@@ -594,7 +667,6 @@
                                 <small>Ton décor personnalisé REMPLACERA le décor automatique du personnage !</small>
                             </div>
                             
-                            <!-- EXEMPLES RAPIDES -->
                             <div style="margin-top: 15px;">
                                 <label>📋 EXEMPLES :</label>
                                 <div style="display: flex; gap: 5px; margin-top: 5px; flex-wrap: wrap;">
@@ -648,9 +720,7 @@
                         <button class="tab-btn" id="tabConsignes">Consignes</button>
                     </div>
                     
-                    <div class="prompt-display" id="promptDisplay">
-                        {/* Le prompt apparaîtra ici */}
-                    </div>
+                    <div class="prompt-display" id="promptDisplay"></div>
                     
                     <div class="recap">
                         <h4>RÉCAPITULATIF</h4>
@@ -671,15 +741,17 @@
         </div>
 
         <footer>
-            <p>© 2024 - PROMPT DANCE STUDIO - 54+ personnages - TOUS LES EFFETS INCLUS</p>
+            <p>© 2024 - PROMPT DANCE STUDIO - 55 personnages - FINALE SPECTACULAIRE INCLUS</p>
         </footer>
     </div>
 
-    <!-- CHARGEMENT DES SCRIPTS DANS LE BON ORDRE -->
+    <!-- CHARGEMENT DES SCRIPTS -->
     <script src="data/countries.js"></script>
     <script src="data/danceMoves.js"></script>
     <script src="data/outfits.js"></script>
     <script src="data/actions.js"></script>
+    <script src="data/hairColors.js"></script>
+    <script src="data/seductionGestures.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
