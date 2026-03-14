@@ -1,0 +1,482 @@
+<!-- index.html - Interface complète avec transformations spectaculaires -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMPT DANCE STUDIO - Créateur de transitions professionnelles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                <h1>💃 PROMPT DANCE STUDIO</h1>
+                <p class="subtitle">Générateur de prompts professionnels pour transitions de danse en 2 parties</p>
+            </div>
+            <div class="version">v3.0 - Édition Spectaculaire</div>
+        </header>
+
+        <!-- CONTENU PRINCIPAL -->
+        <main>
+            <div class="two-column">
+                <!-- COLONNE GAUCHE - FORMULAIRE -->
+                <div class="form-column">
+                    <h2>🎛️ PARAMÈTRES DE LA TRANSITION</h2>
+                    
+                    <!-- SECTION 1: IMAGE DE RÉFÉRENCE -->
+                    <div class="form-section">
+                        <h3>📸 1. IMAGE DE RÉFÉRENCE (VISAGE À CONSERVER)</h3>
+                        <div class="image-upload">
+                            <div class="upload-area" id="uploadArea">
+                                <p>Cliquez ou glissez votre photo ici</p>
+                                <p class="small">(visage net, bien éclairé)</p>
+                                <input type="file" id="imageInput" accept="image/*" hidden>
+                            </div>
+                            <div class="image-preview" id="imagePreview" style="display: none;">
+                                <img id="previewImg" src="#" alt="Aperçu">
+                                <button class="remove-image" id="removeImage">✕</button>
+                            </div>
+                        </div>
+                        <div class="image-note">
+                            ⚠️ Ce visage sera conservé IDENTIQUE dans les deux parties
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2: PAYS / INSPIRATION CULTURELLE -->
+                    <div class="form-section">
+                        <h3>🌍 2. INSPIRATION CULTURELLE</h3>
+                        <div class="country-grid" id="countryGrid">
+                            <!-- Généré dynamiquement par JS -->
+                        </div>
+                        <div class="selected-country" id="selectedCountry">
+                            Pays sélectionné : <span>Aucun</span>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: COULEURS DES PAUMES -->
+                    <div class="form-section">
+                        <h3>🎨 3. COULEURS DES PAUMES (annoncent la tenue finale)</h3>
+                        <div class="color-pickers">
+                            <div class="color-item">
+                                <label>Paume GAUCHE :</label>
+                                <div class="color-selector">
+                                    <input type="color" id="leftPalmColor" value="#ff0000">
+                                    <select id="leftPalmColorSelect">
+                                        <option value="custom">Personnalisé</option>
+                                        <option value="#ff0000">Rouge passion</option>
+                                        <option value="#ff6600">Orange</option>
+                                        <option value="#ff00ff">Rose fuchsia</option>
+                                        <option value="#00ff00">Vert émeraude</option>
+                                        <option value="#0000ff">Bleu Majorelle</option>
+                                        <option value="#ffff00">Jaune soleil</option>
+                                        <option value="#000000">Noir profond</option>
+                                        <option value="#ffd700">Or</option>
+                                        <option value="#c0c0c0">Argent</option>
+                                    </select>
+                                </div>
+                                <div class="color-preview" id="leftPalmPreview" style="background-color: #ff0000;"></div>
+                            </div>
+                            <div class="color-item">
+                                <label>Paume DROITE :</label>
+                                <div class="color-selector">
+                                    <input type="color" id="rightPalmColor" value="#000000">
+                                    <select id="rightPalmColorSelect">
+                                        <option value="custom">Personnalisé</option>
+                                        <option value="#ff0000">Rouge passion</option>
+                                        <option value="#ff6600">Orange</option>
+                                        <option value="#ff00ff">Rose fuchsia</option>
+                                        <option value="#00ff00">Vert émeraude</option>
+                                        <option value="#0000ff">Bleu Majorelle</option>
+                                        <option value="#ffff00">Jaune soleil</option>
+                                        <option value="#000000">Noir profond</option>
+                                        <option value="#ffd700">Or</option>
+                                        <option value="#c0c0c0">Argent</option>
+                                    </select>
+                                </div>
+                                <div class="color-preview" id="rightPalmPreview" style="background-color: #000000;"></div>
+                            </div>
+                        </div>
+                        <button class="suggest-colors" id="suggestColors">⚡ Suggérer couleurs pour ce pays</button>
+                    </div>
+
+                    <!-- SECTION 4: TENUE DE DÉPART -->
+                    <div class="form-section">
+                        <h3>👗 4. TENUE DE DÉPART (sera COMPLÈTEMENT remplacée)</h3>
+                        <div class="outfit-selector">
+                            <select id="startingOutfitStyle">
+                                <option value="sexy_simple">Style sexy décontracté</option>
+                                <option value="chic">Style chic élégant</option>
+                                <option value="sport">Style sportif</option>
+                                <option value="custom">Personnalisé</option>
+                            </select>
+                            
+                            <div class="outfit-details" id="startingOutfitDetails">
+                                <div class="detail-row">
+                                    <label>Haut :</label>
+                                    <input type="text" id="startingTop" value="petit top blanc ultra-court">
+                                </div>
+                                <div class="detail-row">
+                                    <label>Bas :</label>
+                                    <input type="text" id="startingBottom" value="short en jean extrêmement court">
+                                </div>
+                                <div class="detail-row">
+                                    <label>Détails :</label>
+                                    <input type="text" id="startingDetails" value="décolleté généreux mais élégant, pieds nus">
+                                </div>
+                            </div>
+                            
+                            <div class="outfit-options">
+                                <label><input type="checkbox" id="startDecollete" checked> Décolleté élégant</label>
+                                <label><input type="checkbox" id="startVentre" checked> Ventre dévoilé</label>
+                                <label><input type="checkbox" id="startJambes" checked> Jambes découvertes</label>
+                                <label><input type="checkbox" id="startPiedsNus" checked> Pieds nus</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 5: TENUE FINALE -->
+                    <div class="form-section">
+                        <h3>👗 5. TENUE FINALE (APRÈS TRANSITION)</h3>
+                        <div class="final-outfit">
+                            <button class="generate-outfit" id="generateOutfit">✨ GÉNÉRER TENUE AUTO (selon pays)</button>
+                            
+                            <div class="outfit-preview" id="outfitPreview">
+                                <!-- Aperçu dynamique de la tenue -->
+                            </div>
+                            
+                            <textarea id="finalOutfitDescription" rows="6" placeholder="Description détaillée de la tenue finale..."></textarea>
+                            
+                            <div class="outfit-elements">
+                                <h4>Éléments à inclure :</h4>
+                                <div class="elements-grid" id="outfitElements">
+                                    <!-- Checkboxes générées dynamiquement -->
+                                </div>
+                            </div>
+                            
+                            <div class="outfit-accessories">
+                                <h4>Accessoires :</h4>
+                                <div class="accessories-grid" id="outfitAccessories">
+                                    <!-- Checkboxes accessoires -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 5B: TRANSFORMATIONS SPECTACULAIRES (NOUVEAU) -->
+                    <div class="form-section" style="background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; border: 2px solid #f093fb;">
+                        <h3 style="color: #f093fb;">✨ TRANSFORMATIONS SPECTACULAIRES</h3>
+                        
+                        <div class="alien-options" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                            <div class="alien-option" style="grid-column: span 2; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                                <label style="display: flex; align-items: center; gap: 10px;">
+                                    <input type="checkbox" id="enableAlienMode" checked> 
+                                    <span style="font-weight: bold; color: #f093fb;">👽 MODE EXTRA-TERRESTRE AVANCÉ</span>
+                                </label>
+                            </div>
+                            
+                            <div class="alien-option">
+                                <label><input type="checkbox" id="alienSkin" checked> 🌟 Peau irisée / métallique</label>
+                                <select id="alienSkinColor" style="width: 100%; margin-top: 5px; padding: 8px; background: #0f172a; color: white; border: 1px solid #f093fb;">
+                                    <option value="argent">Argent métallique</option>
+                                    <option value="or">Or cosmique</option>
+                                    <option value="bleu">Bleu holographique</option>
+                                    <option value="violet">Violet galactique</option>
+                                    <option value="rose">Rose nébuleuse</option>
+                                    <option value="cyan">Cyan extraterrestre</option>
+                                    <option value="chrome">Chrome liquide</option>
+                                    <option value="irisé">Irisé changeant</option>
+                                </select>
+                            </div>
+                            
+                            <div class="alien-option">
+                                <label><input type="checkbox" id="alienEyes" checked> 👁️ Yeux lumineux</label>
+                                <select id="alienEyesColor" style="width: 100%; margin-top: 5px; padding: 8px; background: #0f172a; color: white; border: 1px solid #f093fb;">
+                                    <option value="rouge">Rouge</option>
+                                    <option value="bleu">Bleu électrique</option>
+                                    <option value="vert">Vert</option>
+                                    <option value="violet">Violet</option>
+                                    <option value="jaune">Jaune</option>
+                                    <option value="blanc">Blanc</option>
+                                </select>
+                            </div>
+                            
+                            <div class="alien-option">
+                                <label><input type="checkbox" id="alienAntenna" checked> 📡 Antennes / Cornes lumineuses</label>
+                                <select id="antennaStyle" style="width: 100%; margin-top: 5px; padding: 8px; background: #0f172a; color: white; border: 1px solid #f093fb;">
+                                    <option value="antennes">Antennes fines</option>
+                                    <option value="cornes">Cornes stylisées</option>
+                                    <option value="couronne">Couronne lumineuse</option>
+                                    <option value="halo">Halo de lumière</option>
+                                </select>
+                            </div>
+                            
+                            <div class="alien-option">
+                                <label><input type="checkbox" id="alienGlow" checked> 💫 Effet phosphorescent</label>
+                                <select id="glowColor" style="width: 100%; margin-top: 5px; padding: 8px; background: #0f172a; color: white; border: 1px solid #f093fb;">
+                                    <option value="bleu">Bleu</option>
+                                    <option value="vert">Vert</option>
+                                    <option value="rose">Rose</option>
+                                    <option value="violet">Violet</option>
+                                    <option value="or">Or</option>
+                                </select>
+                            </div>
+                            
+                            <div class="alien-option">
+                                <label><input type="checkbox" id="alienTattoos" checked> 🔮 Tatouages lumineux</label>
+                                <select id="tattooStyle" style="width: 100%; margin-top: 5px; padding: 8px; background: #0f172a; color: white; border: 1px solid #f093fb;">
+                                    <option value="symboles">Symboles aliens</option>
+                                    <option value="runes">Runes anciennes</option>
+                                    <option value="galaxie">Motifs galactiques</option>
+                                    <option value="circuits">Circuits imprimés</option>
+                                </select>
+                            </div>
+                            
+                            <div class="alien-option" style="grid-column: span 2;">
+                                <label><input type="checkbox" id="alienHolograms" checked> 🌀 Hologrammes flottants</label>
+                                <select id="hologramType" style="width: 100%; margin-top: 5px; padding: 8px; background: #0f172a; color: white; border: 1px solid #f093fb;">
+                                    <option value="etoiles">Étoiles filantes</option>
+                                    <option value="planetes">Planètes miniatures</option>
+                                    <option value="symboles">Symboles mystiques</option>
+                                    <option value="energie">Sphères d'énergie</option>
+                                </select>
+                            </div>
+                            
+                            <div class="alien-option" style="grid-column: span 2; display: flex; justify-content: space-around; margin-top: 10px;">
+                                <label><input type="checkbox" id="alienVoice" checked> 🔊 Voix modulée</label>
+                                <label><input type="checkbox" id="alienGravity" checked> 🌌 Effet apesanteur</label>
+                                <label><input type="checkbox" id="alienTeleportation" checked> ⚡ Effet téléportation</label>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(240, 147, 251, 0.2); border-radius: 10px; text-align: center;">
+                            <span style="font-size: 1.2em; font-weight: bold;">🔥 TRANSFORMATION SPECTACULAIRE ACTIVÉE 🔥</span>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 6: CHEVEUX FLUO -->
+                    <div class="form-section">
+                        <h3>💇 6. TRANSFORMATION DES CHEVEUX</h3>
+                        
+                        <div class="hair-natural">
+                            <label>Couleur naturelle de départ :</label>
+                            <input type="text" id="naturalHair" value="bruns/noirs" placeholder="ex: bruns, blonds, noirs...">
+                        </div>
+                        
+                        <div class="hair-fluo-toggle">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="enableFluo" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="toggle-label">ACTIVER CHEVEUX FLUO APRÈS TRANSITION</span>
+                        </div>
+                        
+                        <div id="fluoOptions">
+                            <div class="fluo-color-selector">
+                                <label>Couleur fluo :</label>
+                                <select id="fluoColor">
+                                    <option value="rouge fluo">🔴 ROUGE FLUO</option>
+                                    <option value="rose fluo">🌸 ROSE FLUO</option>
+                                    <option value="bleu électrique">💙 BLEU ÉLECTRIQUE</option>
+                                    <option value="vert fluo">💚 VERT FLUO</option>
+                                    <option value="jaune fluo">💛 JAUNE FLUO</option>
+                                    <option value="violet fluo">💜 VIOLET FLUO</option>
+                                    <option value="orange fluo">🧡 ORANGE FLUO</option>
+                                    <option value="multicolore">🌈 MULTICOLORE</option>
+                                    <option value="argent métallique">✨ ARGENT MÉTALLIQUE</option>
+                                    <option value="or cosmique">🌟 OR COSMIQUE</option>
+                                    <option value="bleu glacier">❄️ BLEU GLACIER</option>
+                                    <option value="cyan extraterrestre">👽 CYAN EXTRATERRESTRE</option>
+                                </select>
+                            </div>
+                            
+                            <div class="fluo-intensity">
+                                <label>Intensité fluo :</label>
+                                <input type="range" id="fluoIntensity" min="1" max="10" value="9">
+                                <span id="intensityValue">Éclatant</span>
+                            </div>
+                            
+                            <div class="hair-style">
+                                <label>Style de coiffure :</label>
+                                <select id="hairStyle">
+                                    <option value="détachés">Longs et détachés</option>
+                                    <option value="chignon">Chignon élaboré</option>
+                                    <option value="tresses">Tresses / Nattes</option>
+                                    <option value="attachés">Attachés avec mèches libres</option>
+                                    <option value="bouclés">Bouclés volumineux</option>
+                                    <option value="alien">Coiffure extraterrestre</option>
+                                </select>
+                            </div>
+                            
+                            <div class="hair-accessories">
+                                <label>Accessoires :</label>
+                                <div class="accessory-checkboxes">
+                                    <label><input type="checkbox" id="hairPlumes" checked> Plumes</label>
+                                    <label><input type="checkbox" id="hairPerles" checked> Perles</label>
+                                    <label><input type="checkbox" id="hairEpingles" checked> Épingles décoratives</label>
+                                    <label><input type="checkbox" id="hairFleurs" checked> Fleurs</label>
+                                    <label><input type="checkbox" id="hairStrass" checked> Strass / Paillettes</label>
+                                    <label><input type="checkbox" id="hairAlien" checked> Éléments lumineux</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 7: DANSE ET SÉDUCTION -->
+                    <div class="form-section">
+                        <h3>💃 7. DANSE ET SÉDUCTION</h3>
+                        
+                        <div class="seduction-slider">
+                            <label>Intensité de la séduction :</label>
+                            <input type="range" id="seductionLevel" min="1" max="10" value="9">
+                            <div class="slider-labels">
+                                <span>Subtile</span>
+                                <span>Modérée</span>
+                                <span>Explosive</span>
+                            </div>
+                        </div>
+                        
+                        <div class="gestes-container">
+                            <h4>GESTES DE SÉDUCTION :</h4>
+                            
+                            <div class="geste-item">
+                                <label><input type="checkbox" id="gesteRegards" checked> Regards charmeurs intenses</label>
+                            </div>
+                            <div class="geste-item">
+                                <label><input type="checkbox" id="gesteSourires" checked> Sourires en coin / coquins</label>
+                            </div>
+                            <div class="geste-item">
+                                <label><input type="checkbox" id="gesteClins" checked> Clins d'œil complices</label>
+                            </div>
+                            <div class="geste-item">
+                                <label><input type="checkbox" id="gesteLevres" checked> Mordillement de la lèvre</label>
+                            </div>
+                            <div class="geste-item highlight">
+                                <label><input type="checkbox" id="gesteBisous" checked> 💋 BISOUS À LA CAMÉRA</label>
+                                <div class="geste-sub">
+                                    <label>Nombre de bisous :</label>
+                                    <input type="number" id="bisousCount" min="1" max="10" value="3">
+                                </div>
+                            </div>
+                            <div class="geste-item highlight">
+                                <label><input type="checkbox" id="gesteViens" checked> 👉 GESTE "VIENS VERS MOI" (doigt)</label>
+                                <div class="geste-sub">
+                                    <label>Nombre de fois :</label>
+                                    <input type="number" id="viensCount" min="1" max="10" value="4">
+                                </div>
+                            </div>
+                            <div class="geste-item">
+                                <label><input type="checkbox" id="gesteMains" checked> Mains qui caressent le corps</label>
+                            </div>
+                            <div class="geste-item">
+                                <label><input type="checkbox" id="gesteCheveux" checked> Jeux avec les cheveux</label>
+                            </div>
+                            <div class="geste-item">
+                                <label><input type="checkbox" id="gesteTenue" checked> Jeux avec la tenue</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 8: ARRIÈRE-PLAN ET EFFETS -->
+                    <div class="form-section">
+                        <h3>🎬 8. ARRIÈRE-PLAN ET EFFETS</h3>
+                        
+                        <div class="background-selector">
+                            <label>Arrière-plan :</label>
+                            <select id="backgroundStyle">
+                                <option value="auto">Auto (selon pays)</option>
+                                <option value="tablao">Tablao flamenco (Espagne)</option>
+                                <option value="carnaval">Carnaval (Brésil)</option>
+                                <option value="palais">Palais marocain</option>
+                                <option value="savane">Savane africaine (Sénégal)</option>
+                                <option value="japonais">Jardin japonais</option>
+                                <option value="studio">Studio chic neutre</option>
+                                <option value="custom">Personnalisé</option>
+                            </select>
+                        </div>
+                        
+                        <div id="customBackground" style="display: none;">
+                            <textarea id="customBackgroundDesc" rows="3" placeholder="Description personnalisée de l'arrière-plan..."></textarea>
+                        </div>
+                        
+                        <div class="effects">
+                            <h4>EFFETS SPECTACULAIRES :</h4>
+                            <div class="effects-grid">
+                                <label><input type="checkbox" id="effectConfettis" checked> Confettis (couleurs adaptées)</label>
+                                <label><input type="checkbox" id="effectPoudre" checked> Poudre scintillante</label>
+                                <label><input type="checkbox" id="effectPétales" checked> Pluie de pétales</label>
+                                <label><input type="checkbox" id="effectFumee" checked> Fumée légère</label>
+                                <label><input type="checkbox" id="effectLumières" checked> Lumières colorées</label>
+                                <label><input type="checkbox" id="effectPaillettes" checked> Paillettes dans l'air</label>
+                                <label><input type="checkbox" id="effectAlien" checked> Effets extraterrestres</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOUTON GÉNÉRER -->
+                    <div class="generate-section">
+                        <button class="generate-btn" id="generatePrompt">🎬 GÉNÉRER LE PROMPT PROFESSIONNEL</button>
+                    </div>
+                </div>
+
+                <!-- COLONNE DROITE - RÉSULTAT -->
+                <div class="result-column">
+                    <h2>📝 PROMPT GÉNÉRÉ</h2>
+                    
+                    <div class="prompt-tabs">
+                        <button class="tab-btn active" id="tabFull">Complet</button>
+                        <button class="tab-btn" id="tabPart1">Partie 1</button>
+                        <button class="tab-btn" id="tabPart2">Partie 2</button>
+                        <button class="tab-btn" id="tabConsignes">Consignes</button>
+                    </div>
+                    
+                    <div class="prompt-container">
+                        <div id="promptDisplay" class="prompt-display">
+                            <!-- Le prompt généré apparaîtra ici -->
+                        </div>
+                        
+                        <div class="prompt-actions">
+                            <button class="copy-btn" id="copyPrompt">📋 COPIER LE PROMPT</button>
+                            <button class="export-btn" id="exportPrompt">📄 EXPORTER EN TXT</button>
+                            <button class="clear-btn" id="clearPrompt">🗑️ EFFACER</button>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-info">
+                        <h3>⚡ RÉCAPITULATIF DE VOTRE TRANSITION</h3>
+                        <div id="recapContent" class="recap-content">
+                            <!-- Résumé des choix -->
+                        </div>
+                    </div>
+                    
+                    <div class="tips-box">
+                        <h4>💡 CONSEILS D'UTILISATION</h4>
+                        <ul>
+                            <li>Copiez le prompt généré</li>
+                            <li>Collez-le dans votre outil de génération vidéo (RunwayML, Pika, etc.)</li>
+                            <li>Utilisez votre photo comme image de référence</li>
+                            <li>Générez la vidéo en deux parties ou en une seule de 12 secondes</li>
+                            <li>Le visage doit rester IDENTIQUE entre les parties</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>PROMPT DANCE STUDIO - Édition Spectaculaire - Générateur de prompts professionnels sans API</p>
+            <p>© 2024 - Transformations extraterrestres incluses</p>
+        </footer>
+    </div>
+
+    <script src="data/countries.js"></script>
+    <script src="data/danceMoves.js"></script>
+    <script src="data/outfits.js"></script>
+    <script src="data/hairColors.js"></script>
+    <script src="data/seductionGestures.js"></script>
+    <script src="templates/part1Template.js"></script>
+    <script src="templates/part2Template.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
