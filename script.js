@@ -1,4 +1,4 @@
-// script.js - Version ULTIME avec TOUS les effets + ACTIONS/DÉCORS + DÉCOR PERSONNALISÉ
+// script.js - Version ULTIME avec FINALE SPECTACULAIRE SENSUEL
 
 class PromptGenerator {
     constructor() {
@@ -37,6 +37,125 @@ class PromptGenerator {
         
         console.warn(`Type "${type}" non trouvé, utilisation de "pirate" comme fallback`);
         return 'pirate';
+    }
+
+    // ===== NOUVELLE MÉTHODE POUR LE FINALE SENSUEL =====
+    getFinaleGesture() {
+        const finaleGestures = [];
+        
+        // Collection de gestes finaux sensuels et interactifs avec le public
+        if (document.getElementById('finalBisou')?.checked) 
+            finaleGestures.push('elle envoie UN DERNIER BISOU LANGOUREUX à la caméra, ses doigts effleurant ses lèvres avant de s\'ouvrir lentement vers le spectateur, les yeux mi-clos dans un regard de désir');
+        
+        if (document.getElementById('finalCiao')?.checked) 
+            finaleGestures.push('elle fait un "CIAO" SENSUEL de la main, ses doigts bougeant gracieusement comme des vagues, un sourire complice aux lèvres, regardant le spectateur droit dans les yeux');
+        
+        if (document.getElementById('finalMasque')?.checked) 
+            finaleGestures.push('elle RAPPROCHE SES MAINS DE L\'OBJECTIF pour masquer l\'écran, laissant deviner un sourire mystérieux derrière, comme une promesse de revenir, ses doigts caressant presque la caméra');
+        
+        if (document.getElementById('finalCoeur')?.checked) 
+            finaleGestures.push('elle forme un CŒUR AVEC SES MAINS au-dessus de sa tête, puis le porte lentement à sa poitrine en fermant les yeux, offrant son cœur au spectateur');
+        
+        if (document.getElementById('finalClignement')?.checked) 
+            finaleGestures.push('elle fait un LONG CLIN D\'ŒIL APPUYÉ, presque un slow blink, sa paupière s\'abaissant très lentement, accompagné d\'un sourire en coin terriblement charmeur');
+        
+        if (document.getElementById('finalCascade')?.checked) 
+            finaleGestures.push('elle envoie une CASCADE DE BISOUS du bout des doigts, comme une pluie de baisers magiques qui flottent vers le spectateur, ses mains dessinant des cœurs dans l\'air');
+        
+        if (document.getElementById('finalRevelation')?.checked) 
+            finaleGestures.push('elle ÉCARTE LES BRAS dans un geste théâtral de révélation, offrant son corps comme un cadeau au spectateur, la tête légèrement inclinée, regard intense');
+        
+        if (document.getElementById('finalSalut')?.checked) 
+            finaleGestures.push('elle exécute une RÉVÉRENCE GRACIEUSE, son corps s\'abaissant lentement tout en gardant le regard levé vers la caméra, un salut royal digne d\'une reine');
+        
+        if (document.getElementById('finalRegard')?.checked) 
+            finaleGestures.push('elle FIXE LA CAMÉRA INTENSÉMENT pendant 2 secondes, ses yeux plongeant dans ceux du spectateur, puis un sourire lent naît sur ses lèvres, d\'abord timide puis éclatant');
+        
+        if (document.getElementById('finalViens')?.checked) 
+            finaleGestures.push('elle fait un DERNIER GESTE "VIENS VERS MOI" avec l\'index, exécuté très lentement de haut en bas, sa main invitant le spectateur à la rejoindre dans une danse éternelle');
+        
+        if (document.getElementById('finalSouffle')?.checked) 
+            finaleGestures.push('elle ENVOIE UN SOUFFLE SENSUEL vers la caméra, comme un baiser volé, ses lèvres formant une moue parfaite, la buée imaginaire embuant l\'objectif');
+        
+        if (document.getElementById('finalEpaule')?.checked) 
+            finaleGestures.push('elle DÉCOUVRE LENTEMENT SON ÉPAULE en faisant glisser le tissu, regardant la caméra avec un air de défi sensuel, puis la recouvre tout aussi lentement');
+        
+        if (document.getElementById('finalCheveux')?.checked) 
+            finaleGestures.push('elle REJETTE SES CHEVEUX EN ARRIÈRE d\'un geste lent et sensuel, sa main glissant à travers les mèches, le cou offert au regard du spectateur');
+        
+        // Si aucun geste sélectionné, retourner un geste par défaut sensuel
+        if (finaleGestures.length === 0) {
+            return 'elle envoie un dernier bisou du bout des doigts, suivit d\'un clin d\'œil complice, puis caresse lentement son épaule en fixant la caméra';
+        }
+        
+        // Combiner tous les gestes sélectionnés de façon fluide
+        if (finaleGestures.length === 1) {
+            return finaleGestures[0];
+        } else {
+            // Combiner avec "puis" et "enfin" pour une narration fluide
+            const lastGesture = finaleGestures.pop();
+            if (finaleGestures.length === 1) {
+                return finaleGestures[0] + ' puis ' + lastGesture;
+            } else {
+                return finaleGestures.join(', ') + ', puis enfin ' + lastGesture;
+            }
+        }
+    }
+
+    // ===== NOUVELLE MÉTHODE POUR LES OPTIONS DE FIN =====
+    getFinalOption() {
+        const option = document.getElementById('finalOption')?.value || 'freeze';
+        const duree = document.getElementById('finalMaintien')?.value || '2';
+        const emotion = document.getElementById('finalEmotion')?.value || 'satisfaite';
+        
+        const options = {
+            'freeze': {
+                description: `l'image se fige sur CE MOMENT PRÉCIS, ses yeux continuant de vivre, un léger sourire ${emotion} aux lèvres, comme une photographie sensuelle qui dure ${duree} secondes`,
+                technique: 'freeze frame avec maintien de l’expression faciale'
+            },
+            'fondu': {
+                description: `un FONDU AU NOIR PROGRESSIF enveloppe l'image, partant des bords pour terminer sur son regard, comme une porte qui se ferme doucement sur ${duree} secondes`,
+                technique: 'fondu au noir cinématographique'
+            },
+            'fonduBlanc': {
+                description: `un FONDU AU BLANC LUMINEUX l'illumine, comme un flash d'appareil photo qui révélerait sa silhouette de déesse, pendant ${duree} secondes`,
+                technique: 'éblouissement progressif'
+            },
+            'zoom': {
+                description: `un ZOOM LENT ET DOUX sur son visage, capturant l'émotion ${emotion} de son regard, ses yeux devenant plus grands à l'écran pendant ${duree} secondes`,
+                technique: 'zoom avant intime'
+            },
+            'flou': {
+                description: `un FLOU ARTISTIQUE PROGRESSIF, ses traits devenant de plus en plus éthérés comme un rêve qui s'achève, ne laissant que son sourire visible pendant ${duree} secondes`,
+                technique: 'flou de rêve'
+            },
+            'iris': {
+                description: `un EFFET IRIS CINÉMATOGRAPHIQUE, le cercle se refermant lentement sur son visage comme dans les films muets, sur ${duree} secondes`,
+                technique: 'fermeture à l’iris'
+            }
+        };
+        
+        return {
+            description: options[option]?.description || options['freeze'].description,
+            technique: options[option]?.technique || options['freeze'].technique,
+            duree: duree,
+            emotion: emotion
+        };
+    }
+
+    // ===== MÉTHODE POUR L'INTERACTION AVEC LE PUBLIC =====
+    getPublicInteraction() {
+        const interaction = document.getElementById('finalInteraction')?.value || 'regard';
+        
+        const interactions = {
+            'regard': 'elle plonge son regard DROIT DANS LES YEUX DU SPECTATEUR, créant une connexion intime et personnelle',
+            'sourire': 'elle offre un SOURIRE ÉCLATANT ET PERSONNEL, comme si elle ne dansait que pour LUI, pour ELLE',
+            'clin': 'elle fait un CLIN D\'ŒIL COMPLICE, comme un secret partagé entre elle et chaque spectateur',
+            'main': 'elle TEND LA MAIN vers l\'écran, comme pour toucher le spectateur à travers la vitre',
+            'tous': 'elle ALTERNATE REGARD, SOURIRE ET CLIN D\'ŒIL, s\'adressant personnellement à chaque personne derrière l\'écran'
+        };
+        
+        return interactions[interaction] || interactions['regard'];
     }
 
     collectUserData() {
@@ -154,7 +273,6 @@ class PromptGenerator {
                 customText: document.getElementById('customText')?.value || ''
             },
             
-            // NOUVEAU : DÉCOR PERSONNALISÉ
             customDecor: {
                 enabled: document.getElementById('enableCustomDecor')?.checked || false,
                 text: document.getElementById('customDecorText')?.value || '',
@@ -165,6 +283,27 @@ class PromptGenerator {
                     reflets: document.getElementById('decorEffetReflets')?.checked || false,
                     profondeur: document.getElementById('decorEffetProfondeur')?.checked || false
                 }
+            },
+            
+            // ===== NOUVELLES DONNÉES POUR LE FINALE =====
+            finale: {
+                bisou: document.getElementById('finalBisou')?.checked || false,
+                ciao: document.getElementById('finalCiao')?.checked || false,
+                masque: document.getElementById('finalMasque')?.checked || false,
+                coeur: document.getElementById('finalCoeur')?.checked || false,
+                clignement: document.getElementById('finalClignement')?.checked || false,
+                cascade: document.getElementById('finalCascade')?.checked || false,
+                revelation: document.getElementById('finalRevelation')?.checked || false,
+                salut: document.getElementById('finalSalut')?.checked || false,
+                regard: document.getElementById('finalRegard')?.checked || false,
+                viens: document.getElementById('finalViens')?.checked || false,
+                souffle: document.getElementById('finalSouffle')?.checked || false,
+                epaule: document.getElementById('finalEpaule')?.checked || false,
+                cheveux: document.getElementById('finalCheveux')?.checked || false,
+                option: document.getElementById('finalOption')?.value || 'freeze',
+                maintien: document.getElementById('finalMaintien')?.value || '2',
+                emotion: document.getElementById('finalEmotion')?.value || 'satisfaite',
+                interaction: document.getElementById('finalInteraction')?.value || 'regard'
             }
         };
     }
@@ -172,14 +311,25 @@ class PromptGenerator {
     getColorName(hex) {
         const colors = {
             '#ff0000': 'rouge passion',
+            '#ff4500': 'orange brûlé',
             '#ff6600': 'orange vif',
             '#ff00ff': 'rose fuchsia',
+            '#ff69b4': 'rose bonbon',
             '#00ff00': 'vert émeraude',
+            '#00ced1': 'turquoise',
             '#0000ff': 'bleu Majorelle',
+            '#4169e1': 'bleu royal',
             '#ffff00': 'jaune soleil',
+            '#ffd700': 'or étincelant',
+            '#c0c0c0': 'argent métallique',
             '#000000': 'noir profond',
-            '#ffd700': 'or',
-            '#c0c0c0': 'argent'
+            '#ffffff': 'blanc pur',
+            '#8b4513': 'marron cuir',
+            '#800080': 'violet profond',
+            '#4b0082': 'indigo',
+            '#2e8b57': 'vert forêt',
+            '#ff8c00': 'orange foncé',
+            '#dc143c': 'rouge cramoisi'
         };
         return colors[hex.toLowerCase()] || 'couleur personnalisée';
     }
@@ -551,6 +701,51 @@ IMPORTANT - PRÉPARATION POUR LA PARTIE 2 :
                 decorAleatoire;
         }
 
+        // ===== GÉNÉRATION DU FINALE SPECTACULAIRE =====
+        const finale = this.getFinaleGesture();
+        const finalOption = this.getFinalOption();
+        const publicInteraction = this.getPublicInteraction();
+
+        const finaleText = `
+
+🎬 FINALE SPECTACULAIRE - CONNEXION AVEC LE PUBLIC (TIMING PRÉCIS À LA 4ÈME SECONDE) :
+
+⏱️ CHRONOLOGIE DE LA FIN (6 secondes totales) :
+- SECONDES 1 à 4 : Danse intense et sensuelle comme décrite ci-dessus
+- SECONDE 4 (EXACTEMENT) : Elle arrête sa chorégraphie et se tourne PLEINEMENT vers le spectateur
+- SECONDE 4.5 à 5.5 : Elle exécute SON GESTE FINAL (1 seconde)
+- SECONDES 5.5 à 6.5 : Elle MAINTIENT LA POSE FINALE (${finalOption.duree} secondes)
+- FIN : ${finalOption.description}
+
+🎯 INTERACTION DIRECTE AVEC LE PUBLIC :
+- Pendant TOUTE cette séquence finale, ${publicInteraction}
+- Elle danse POUR le spectateur, PAS pour elle-même
+- Chaque geste est une OFFANDE au public, une invitation à la désirer
+- Ses expressions faciales sont EXAGÉRÉMENT SENSUELLES, comme si elle voulait séduire chaque personne derrière l'écran
+
+💋 GESTE FINAL EXÉCUTÉ À LA SECONDE 4 :
+${finale}
+
+📸 MAINTIEN DE POSE SENSUEL (${finalOption.duree} secondes) :
+- Pendant le maintien, son corps reste figé mais SON VISAGE CONTINUE DE VIVRE
+- Ses yeux parcourent lentement l'écran, s'attardant sur chaque spectateur imaginaire
+- Sa respiration est AMPLE, sa poitrine se soulève et s'abaisse visiblement
+- Un léger sourire ${finalOption.emotion} flotte sur ses lèvres
+- Elle semble retenir son souffle, créant une tension sensuelle
+
+💫 INTENTION DE LA FINALE :
+- Cette séquence finale est CONÇUE POUR ÊTRE PARTAGÉE SUR LES RÉSEAUX SOCIAUX
+- Le geste final est le "MOMENT VIRAL" de la vidéo
+- Le spectateur doit avoir ENVIE DE REVENIR, DE REGARDER ENCORE
+- La dernière image doit rester GRAVÉE DANS LA MÉMOIRE
+
+🔥 RAPPEL SENSUEL :
+- Son corps est mis en valeur par l'éclairage
+- Ses courbes sont accentuées par sa pose
+- Son regard transperce l'écran
+- Elle est IRRÉSISTIBLE, INOUBLIABLE
+`;
+
         const prompt = `Suite de la transition - DEUXIÈME PARTIE de 6 secondes.
 
 CONTINUITÉ PARFAITE DU VISAGE :
@@ -636,16 +831,20 @@ ${advancedEffects ? advancedEffects + '\n' : ''}
 EFFETS SPECTACULAIRES DE BASE :
 Au moment où ses mains révèlent la transformation, explosion de ${baseEffectsText}
 
+${finaleText}
+
 CAMÉRA ET ÉCLAIRAGE :
 - Caméra statique - elle danse POUR le spectateur, face à lui
 - Éclairage cinématographique chaleureux et enveloppant
 - Lumières spécifiques pour faire ressortir les cheveux fluo et les effets spéciaux
+- Pendant le finale, la lumière se resserre sur elle (spotlight) pour accentuer le moment
 - Ambiance intimiste et professionnelle
 
 RAPPEL IMPORTANT :
 - La transformation est DÉJÀ TERMINÉE au début de cette partie
 - AUCUNE métamorphose visible pendant ces 6 secondes
-- Tout a eu lieu PENDANT que les mains cachaient l'objectif dans la PARTIE 1`;
+- Tout a eu lieu PENDANT que les mains cachaient l'objectif dans la PARTIE 1
+- La FINALE est le MOMENT CLÉ à retenir - elle doit être PARFAITE`;
 
         return prompt;
     }
@@ -655,7 +854,7 @@ RAPPEL IMPORTANT :
         
         let alienLine = '';
         if (this.userData.alienMode) {
-            alienLine = '\n13. MODE EXTRA-TERRESTRE ACTIVÉ : Transformations spectaculaires incluses (peau, yeux, antennes, etc.)';
+            alienLine = '\n15. MODE EXTRA-TERRESTRE ACTIVÉ : Transformations spectaculaires incluses (peau, yeux, antennes, etc.)';
         }
         
         return `CONSIGNES DE COHÉRENCE ABSOLUE :
@@ -673,7 +872,8 @@ RAPPEL IMPORTANT :
 11. INSPIRATION CULTURELLE : ${country.name} - ${country.dance}
 12. ⚠️ TRANSFORMATION DÉJÀ ACCOMPLIE : AUCUN changement visible pendant la PARTIE 2 - tout a eu lieu PENDANT que les mains cachaient l'objectif
 13. RENDU ULTRA-RÉALISTE : Visage avec pores, défauts, imperfections - PAS DE PEAU LISSE IA
-14. YEUX 8K NATURELS : Iris détaillés, vaisseaux visibles, reflets nets${alienLine}`;
+14. YEUX 8K NATURELS : Iris détaillés, vaisseaux visibles, reflets nets
+15. FINALE SPECTACULAIRE : À la 4ème seconde, elle exécute son geste final face au public, maintient la pose, puis effet de fin choisi${alienLine}`;
     }
 
     generateFullPrompt() {
@@ -696,9 +896,7 @@ RAPPEL IMPORTANT :
 // ==================== INITIALISATION ====================
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("✅ Application ULTIME démarrée avec TOUS les effets");
-    console.log("✅ Gestion intelligente des types pour actions.js activée");
-    console.log("✅ Décor personnalisé disponible");
+    console.log("✅ Application ULTIME démarrée avec FINALE SPECTACULAIRE");
     
     initCharacters();
     initEvents();
@@ -818,7 +1016,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Gestionnaire pour les gestes
+    // Gestionnaire pour l'intensité de séduction
+    const seductionLevel = document.getElementById('seductionLevel');
+    const seductionValue = document.getElementById('seductionValue');
+    if (seductionLevel && seductionValue) {
+        seductionValue.textContent = seductionLevel.value + '/10';
+        seductionLevel.addEventListener('input', function() {
+            seductionValue.textContent = this.value + '/10';
+        });
+    }
+    
+    // Gestionnaire pour les gestes (bisous et viens)
     const bisousCheckbox = document.getElementById('gesteBisous');
     const bisousCount = document.getElementById('bisousCount');
     if (bisousCheckbox && bisousCount) {
@@ -974,6 +1182,25 @@ function updateRecap() {
     const alienMode = document.getElementById('enableAlienMode')?.checked ? '👽 ACTIVÉ' : 'Désactivé';
     const textsActive = document.getElementById('enableMagicTexts')?.checked ? '✨ ACTIVÉS' : 'Désactivés';
     const decorActif = document.getElementById('enableCustomDecor')?.checked ? '✅ PERSONNALISÉ' : 'Auto';
+    
+    // Récupération des gestes finaux pour le récap
+    const finaleActif = 
+        (document.getElementById('finalBisou')?.checked ? '💋' : '') +
+        (document.getElementById('finalCiao')?.checked ? '👋' : '') +
+        (document.getElementById('finalMasque')?.checked ? '🖐️' : '') +
+        (document.getElementById('finalCoeur')?.checked ? '💖' : '') +
+        (document.getElementById('finalClignement')?.checked ? '😉' : '') +
+        (document.getElementById('finalCascade')?.checked ? '💋💋' : '') +
+        (document.getElementById('finalRevelation')?.checked ? '✨' : '') +
+        (document.getElementById('finalSalut')?.checked ? '👑' : '') +
+        (document.getElementById('finalRegard')?.checked ? '👁️' : '') +
+        (document.getElementById('finalViens')?.checked ? '👉' : '') +
+        (document.getElementById('finalSouffle')?.checked ? '💨' : '') +
+        (document.getElementById('finalEpaule')?.checked ? '🔥' : '') +
+        (document.getElementById('finalCheveux')?.checked ? '💇' : '');
+    
+    const finaleText = finaleActif ? finaleActif : 'Geste par défaut';
+    
     const bisousCheckbox = document.getElementById('gesteBisous');
     const viensCheckbox = document.getElementById('gesteViens');
     const bisousCount = document.getElementById('bisousCount')?.value || '0';
@@ -992,6 +1219,7 @@ function updateRecap() {
 🎬 Décor : ${decorActif}
 💋 Bisous : ${bisousText}
 👉 Geste "viens" : ${viensText}
+🎬 FINALE : ${finaleText}
     `;
     
     const recapDiv = document.getElementById('recapContent');
